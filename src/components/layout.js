@@ -1,5 +1,6 @@
 import * as React from "react";
 import { Link, useStaticQuery, graphql } from "gatsby";
+import Prism from "prismjs"
 import {
   container,
   heading,
@@ -10,6 +11,11 @@ import {
 } from "./layout.module.css";
 
 const Layout = ({ pageTitle, children }) => {
+
+  React.useEffect(() => {
+    // call the highlightAll() function to style our code blocks
+    Prism.highlightAll()
+  })
 
   const data = useStaticQuery(graphql`
     query {
